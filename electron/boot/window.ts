@@ -5,6 +5,7 @@ import WindowManager from "../windows";
 export default async () => {
   initialize()
   await app.whenReady()
+  app.setAccessibilitySupportEnabled(true)
   const windowManager = new WindowManager()
   windowManager.createHomePage()
 
