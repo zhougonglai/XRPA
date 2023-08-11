@@ -87,7 +87,9 @@ function useLoading() {
 const launchBrowser = async() => {
   console.log('Launching browser')
   const browser = await puppeteer.launch({
-    executablePath: executablePath('chrome')
+    executablePath: executablePath('chrome'),
+    headless:false,
+    pipe: true,
   });
   const page = await browser.newPage();
 
