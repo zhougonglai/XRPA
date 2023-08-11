@@ -9,13 +9,14 @@ export const DEFAULT_BROWSER_WINDOW_OPTIONS: BrowserWindowConstructorOptions = {
   closable: true,
   minimizable: true,
   autoHideMenuBar: true,
-  transparent: true,
+  transparent: false,
   // hidden title bar feature in low version of the Electron not work when the titleBarStyle attributes value is hidden,
   // but this bug was fixed in new version.
   // @TODO: remove frame options after upgrade new version of the Electron.
-  frame: platform() === "darwin",
-  titleBarStyle: "customButtonsOnHover",
-  titleBarOverlay: true,
+  // frame: platform() === "darwin",
+  frame: true,
+  // titleBarStyle: "customButtonsOnHover",
+  // titleBarOverlay: true,
   zoomToPageWidth: true,
   webPreferences: {
     autoplayPolicy: "no-user-gesture-required",
