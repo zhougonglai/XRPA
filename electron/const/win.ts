@@ -1,5 +1,4 @@
 import { BrowserWindowConstructorOptions } from "electron";
-import { platform } from "node:os";
 
 export const DEFAULT_BROWSER_WINDOW_OPTIONS: BrowserWindowConstructorOptions = {
   resizable: true,

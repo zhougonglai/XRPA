@@ -1,7 +1,6 @@
 import { val } from "value-enhancer";
 import { app, BrowserWindow } from "electron";
 import path from 'node:path'
-import puppeteer from 'puppeteer';
 import { HOME_SIZE, DEFAULT_BROWSER_WINDOW_OPTIONS } from '../const'
 import { enable } from "@electron/remote/main";
 
