@@ -8,8 +8,10 @@ export default async () => {
   app.setAccessibilitySupportEnabled(true)
   const windowManager = new WindowManager()
   windowManager.createHomePage()
+  // new Tray(join(process.env.PUBLIC, 'logo.ico'));
 
   const HomePage = windowManager.wins.get('Home')
   HomePage?.createWindow()
+
   return
 }

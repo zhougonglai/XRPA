@@ -1,36 +1,36 @@
 <template>
   <main class="h-screen bg-light-50 flex flex-col">
-    <header class="shadow hover:shadow-lg transition-shadow w-full">
-      <div class="h-12 flex place-content-center place-items-center space-x-10">
-        <div class="text-blue-500 px-5 ">
+    <header class="shadow hover:shadow-lg transition-shadow w-full drag">
+      <div class="h-12 flex place-content-center place-items-center">
+        <div class="text-blue-500 px-5 w-56 no-drag">
           XRPA
         </div>
 
-        <nav class="flex-1 space-x-4 ">
-          <router-link :to="{ name: 'index' }" class="inline-block w-10 text-center">
+        <nav class="flex-1 space-x-4">
+          <router-link :to="{ name: 'index' }" class="inline-block w-10 text-center no-drag">
             应用
           </router-link>
-          <router-link :to="{ name: 'strategy' }" class="inline-block w-10 text-center">
+          <router-link :to="{ name: 'strategy' }" class="inline-block w-10 text-center no-drag">
             策略
           </router-link>
-          <router-link :to="{ name: 'market' }" class="inline-block w-10 text-center">
+          <router-link :to="{ name: 'market' }" class="inline-block w-10 text-center no-drag">
             市场
           </router-link>
         </nav>
 
         <ul class="inline-grid grid-cols-3 gap-x-2 w-24">
           <li>
-            <button>
+            <button class="no-drag" @click="mini">
               -
             </button>
           </li>
           <li>
-            <button>
+            <button class="no-drag">
               ☐
             </button>
           </li>
           <li>
-            <button>
+            <button class="no-drag">
               &times;
             </button>
           </li>
@@ -41,3 +41,9 @@
     <router-view></router-view>
   </main>
 </template>
+<script setup lang="ts">
+const mini = () => {
+  window.electronAPI.minimize()
+}
+
+</script>

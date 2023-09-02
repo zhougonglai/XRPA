@@ -1,11 +1,14 @@
 import { val } from "value-enhancer";
-import { app, BrowserWindow } from "electron";
-import path from 'node:path'
+import { app, BrowserWindow, Tray } from "electron";
+import path, { join, resolve } from 'node:path'
 import { HOME_SIZE, DEFAULT_BROWSER_WINDOW_OPTIONS } from '../const'
 import { enable } from "@electron/remote/main";
+import { ipcMain } from 'electron'
+
 
 export default class WinPage {
   public win: BrowserWindow | null = null
+  public tray: Tray | null = null
   public name: string
   private readonly loaded$ = val<boolean>(false);
 
@@ -15,6 +18,7 @@ export default class WinPage {
 
   constructor(name: string) {
     this.name = name;
+    // this.tray = new Tray(join(process.env.PUBLIC, 'logo.ico'));
   }
 
 
@@ -25,8 +29,8 @@ export default class WinPage {
     this.win = new BrowserWindow({
       icon: path.join(process.env.PUBLIC, 'electron-vite.svg'),
       ...DEFAULT_BROWSER_WINDOW_OPTIONS,
+      ...HOME_SIZE,
       webPreferences: {
-        ...HOME_SIZE,
         ...DEFAULT_BROWSER_WINDOW_OPTIONS.webPreferences,
         devTools: true,
         preload,
@@ -49,6 +53,7 @@ export default class WinPage {
   }
 
   ready() {
+
     this.win?.once('ready-to-show', () => {
       this.win?.show()
       this.loaded$.value = true
@@ -56,6 +61,12 @@ export default class WinPage {
 
     this.win?.webContents.on('did-finish-load', () => {
       this.win?.webContents.send('main-process-message', (new Date).toLocaleString())
+
+      ipcMain.on('close', () => this.win?.close());
+      ipcMain.on('show', () => this.win?.show());
+      ipcMain.on('maximize', () => this.win?.maximize());
+      ipcMain.on('minimize', () => this.win?.minimize());
+      ipcMain.on('restore', () => this.win?.restore());
     })
 
     app.on('window-all-closed', () => {

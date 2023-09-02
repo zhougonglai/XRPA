@@ -1,3 +1,5 @@
+import { contextBridge, ipcRenderer } from 'electron'
+
 import puppeteer, { executablePath } from 'puppeteer-core';
 
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
@@ -39,7 +41,15 @@ const launchBrowser = async() => {
 
 // ----------------------------------------------------------------------
 
-domReady()
+domReady().then(() => {
+  contextBridge.exposeInMainWorld('electronAPI', {
+    close: () => ipcRenderer.send('close'),
+    show: () => ipcRenderer.send('show'),
+    maximize: () => ipcRenderer.send('maximize'),
+    minimize: () => ipcRenderer.send('minimize'),
+    restore: () => ipcRenderer.send('restore')
+  })
+})
 
 window.onmessage = ev => {
   console.log(ev.data)
