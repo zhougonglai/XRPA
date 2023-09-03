@@ -6,5 +6,6 @@
     "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true
   },
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
   "include": ["vite.config.ts"]
 }

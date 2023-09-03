@@ -25,12 +25,12 @@
             </button>
           </li>
           <li>
-            <button class="no-drag">
+            <button class="no-drag" @click="maximize">
               ☐
             </button>
           </li>
           <li>
-            <button class="no-drag">
+            <button class="no-drag" @click="hide">
               &times;
             </button>
           </li>
@@ -43,7 +43,15 @@
 </template>
 <script setup lang="ts">
 const mini = () => {
-  window.electronAPI.minimize()
+  window.electron.ipcRenderer.send('minimize')
+}
+
+const maximize = () => {
+  window.electron.ipcRenderer.send('maximize')
+}
+
+const hide = () => {
+  window.electron.ipcRenderer.send('maximize')
 }
 
 </script>

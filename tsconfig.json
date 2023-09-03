@@ -31,5 +31,6 @@
     "src/types/global.ts",
     "electron"
   ],
+  "extends": "@electron-toolkit/tsconfig/tsconfig.json",
   "references": [{ "path": "./tsconfig.node.json" }]
 }

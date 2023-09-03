@@ -18,7 +18,6 @@ export default class WinPage {
 
   constructor(name: string) {
     this.name = name;
-    // this.tray = new Tray(join(process.env.PUBLIC, 'logo.ico'));
   }
 
 
@@ -67,6 +66,7 @@ export default class WinPage {
       ipcMain.on('maximize', () => this.win?.maximize());
       ipcMain.on('minimize', () => this.win?.minimize());
       ipcMain.on('restore', () => this.win?.restore());
+      ipcMain.on('hide', () => this.win?.hide());
     })
 
     app.on('window-all-closed', () => {

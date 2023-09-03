@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@electron-toolkit/preload':
+    specifier: ^2.0.0
+    version: 2.0.0(electron@24.4.0)
+  '@electron-toolkit/utils':
+    specifier: ^2.0.0
+    version: 2.0.0(electron@24.4.0)
   '@electron/remote':
     specifier: ^2.0.10
     version: 2.0.10(electron@24.4.0)
@@ -28,6 +34,9 @@ dependencies:
     version: 4.1.6(vue@3.3.4)
 
 devDependencies:
+  '@electron-toolkit/tsconfig':
+    specifier: ^1.0.1
+    version: 1.0.1(@types/node@18.11.12)
   '@formkit/auto-animate':
     specifier: 1.0.0-beta.5
     version: 1.0.0-beta.5
@@ -458,6 +467,30 @@ packages:
       ajv: 6.12.6
       ajv-keywords: 3.5.2(ajv@6.12.6)
     dev: true
+
+  /@electron-toolkit/preload@2.0.0(electron@24.4.0):
+    resolution: {integrity: sha512-zpZDzbqJTZQC5d4LRs2EKruKWnqah+T75s+niBYFemYLtiW5TTZcWi3Q8UxHqnwTudDMuWJb233aaS2yjx3Xiw==}
+    peerDependencies:
+      electron: '>=13.0.0'
+    dependencies:
+      electron: 24.4.0
+    dev: false
+
+  /@electron-toolkit/tsconfig@1.0.1(@types/node@18.11.12):
+    resolution: {integrity: sha512-M0Mol3odspvtCuheyujLNAW7bXq7KFNYVMRtpjFa4ZfES4MuklXBC7Nli/omvc+PRKlrklgAGx3l4VakjNo8jg==}
+    peerDependencies:
+      '@types/node': '*'
+    dependencies:
+      '@types/node': 18.11.12
+    dev: true
+
+  /@electron-toolkit/utils@2.0.0(electron@24.4.0):
+    resolution: {integrity: sha512-taE/vvFOpoK5jyjUJTmMCjyGC2ODEObku4uvEt3PxoGPy25abGZcp9nbbbqBPqnfBjh88XSaPtnLRZNuOpHnnA==}
+    peerDependencies:
+      electron: '>=13.0.0'
+    dependencies:
+      electron: 24.4.0
+    dev: false
 
   /@electron/get@2.0.2:
     resolution: {integrity: sha512-eFZVFoRXb3GFGd7Ak7W4+6jBl9wBtiZ4AaYOse97ej6mKj5tkyO0dUnUChs1IhJZtx1BENo4/p4WUTXpi6vT+g==}
