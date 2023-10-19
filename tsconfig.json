@@ -28,9 +28,14 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/types/*.d.ts",
-    "src/types/global.ts",
+    "src/types/global.d.ts",
     "electron"
   ],
-  "extends": "@electron-toolkit/tsconfig/tsconfig.json",
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "extends": [
+    "@electron-toolkit/tsconfig/tsconfig.json",
+  ],
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.web.json" },
+  ]
 }
