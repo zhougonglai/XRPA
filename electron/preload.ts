@@ -16,23 +16,6 @@ function domReady(condition: DocumentReadyState[] = ['complete', 'interactive'])
 
 const launchBrowser = async() => {
   console.log('Launching browser')
-  // let driver = await new Builder().forBrowser('chrome').build();
-
-  // await driver.get('https://www.baidu.com')
-
-  // setTimeout(() => {
-  //   driver.quit()
-  // }, 5000);
-
-  // const browser = await pie.connect(app, puppeteer);
-
-  // const window = new BrowserWindow();
-  // const url = "https://example.com/";
-  // await window.loadURL(url);
-
-  // const page = await pie.getPage(browser, window);
-  // console.log(page.url());
-  // window.destroy();
 
   const browser = await puppeteer.launch({
     executablePath: executablePath('chrome'),
