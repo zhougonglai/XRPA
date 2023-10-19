@@ -25,8 +25,8 @@ export const DEFAULT_BROWSER_WINDOW_OPTIONS: BrowserWindowConstructorOptions = {
     //       @BlackHole1
     // enableRemoteModule: true,
     nodeIntegration: true,
-    contextIsolation: false,
-    webSecurity: false,
+    contextIsolation: true,
+    webSecurity: true,
     webviewTag: true,
     backgroundThrottling: false,
     nodeIntegrationInWorker: true,

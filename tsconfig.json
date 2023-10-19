@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "module": "ESNext",
+    "module": "NodeNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
 
@@ -23,6 +23,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "electron"],
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/types/*.d.ts",
+    "src/types/global.ts",
+    "electron"
+  ],
+  "extends": "@electron-toolkit/tsconfig/tsconfig.json",
   "references": [{ "path": "./tsconfig.node.json" }]
 }

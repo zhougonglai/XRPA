@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.drag {
+  -webkit-app-region: drag;
+  cursor            : pointer;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+  user-select       : none;
+}

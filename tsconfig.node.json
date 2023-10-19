@@ -3,8 +3,9 @@
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true
   },
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
   "include": ["vite.config.ts"]
 }
